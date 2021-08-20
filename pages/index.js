@@ -27,8 +27,9 @@ export default function Home({session,posts}) {
 
 export async function getServerSideProps(context){
   //get the user
-  const session= await getSession(context)
+  const session= await getSession(context);
   // Here i am fetching the written posts at the time of rendering immediately
+  if(session){
   const posts=await db.collection('posts').orderBy('timeStamp','desc').get();
   const docs=posts.docs.map((post)=>(
     {
@@ -41,6 +42,14 @@ export async function getServerSideProps(context){
     props:{
       session,
       posts:docs
+    }
+  }
+  }
+  else{
+    return{
+      props:{
+        session,
+      }
     }
   }
 }

@@ -1,0 +1,7 @@
+https://facebook-clone-2-0-jade.vercel.app/api/auth/callback/facebook
+
+https://facebook-clone-2-0-o11w5dkei-prangonchakraborty-1805085.vercel.app/api/auth/callback/facebook
+
+https://facebook-clone-2-0-prangonchakraborty-1805085.vercel.app/api/auth/callback/facebook
+
+https://facebook-clone-2-0-git-main-prangonchakraborty-1805085.vercel.app/api/auth/callback/facebook
