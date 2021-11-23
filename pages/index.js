@@ -1,14 +1,16 @@
-import { getSession } from 'next-auth/client'
+// import { getSession } from 'next-auth/client'
 import Head from 'next/head'
 import Feed from '../components/MainBody/Feed';
 import Header from '../components/headerPart/Header'
-import Login from '../components/Login';
+// import Login from '../components/Login';
 import Sidebar from '../components/MainBody/Sidebar';
 import Widgets from '../components/MainBody/Widgets';
-import { db } from '../firebase';
+import admin from '../firebase_admin'
 
-export default function Home({session,posts}) {
-  if (!session) return <Login/>;
+// export default function Home({session,posts}) {
+export default function Home({posts}) {
+
+  // if (!session) return <Login/>;
   return (
     <div className='h-screen bg-gray-100 overflow-hidden'>
       <Head>
@@ -27,9 +29,10 @@ export default function Home({session,posts}) {
 
 export async function getServerSideProps(context){
   //get the user
-  const session= await getSession(context);
+  // const session= await getSession(context);
   // Here i am fetching the written posts at the time of rendering immediately
-  if(session){
+  // if(session){
+   const db=admin.firestore(); 
   const posts=await db.collection('posts').orderBy('timeStamp','desc').get();
   const docs=posts.docs.map((post)=>(
     {
@@ -40,16 +43,16 @@ export async function getServerSideProps(context){
   ))
   return{
     props:{
-      session,
+      // session,
       posts:docs
     }
   }
-  }
-  else{
-    return{
-      props:{
-        session,
-      }
-    }
-  }
+  // }
+  // else{
+  //   return{
+  //     props:{
+  //       session,
+  //     }
+  //   }
+  // }
 }

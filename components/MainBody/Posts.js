@@ -6,6 +6,8 @@ import { db } from '../../firebase';
 import Post from './Post';
 import firebase from 'firebase'
 function Posts({posts}) {
+
+    //here "posts" contain the posts loaded at the time of the apps first loading..When the app starts, the 'realtimePost' is the same as the posts..but when you upload new post, it will collect the latest posts collection from the database using useCollection hook..So 'realtimePosts' will contain new Posts but the 'posts' props will become old
     const [realtimePosts,loading,error]= useCollection(
          db.collection('posts').orderBy('timeStamp','desc')
     );

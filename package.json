@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.2",
+    "better-react-spinkit": "^2.0.4",
     "firebase": "^8.7.1",
+    "firebase-admin": "^10.0.0",
     "next": "11.0.1",
     "next-auth": "^3.27.3",
     "react": "17.0.2",
