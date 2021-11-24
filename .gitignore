@@ -32,7 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
-# others
-Urls must be added to valid auth redirect url.txt
+
 #libraries
 fireConfig.js
